@@ -1,8 +1,9 @@
 'use client';
 import { createAppKit } from '@reown/appkit';
-import { ethersAdapter } from '@reown/appkit-adapter-ethers';
+import { EthersAdapter } from '@reown/appkit-adapter-ethers';
+import { base, mainnet } from '@reown/appkit/networks';
 
-export const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!;
+export const projectId = "ad05ceae4fd3cf2d84ea8d34d4ad8799";
 
 export const metadata = {
   name: "UniCert NFT",
@@ -20,8 +21,8 @@ export const chains = [
 ];
 
 export const appKit = createAppKit({
-  adapters: [ethersAdapter()],
+  adapters: [new EthersAdapter()],
   metadata,
   projectId,
-  networks: chains,
+  networks: [mainnet, base],
 });
